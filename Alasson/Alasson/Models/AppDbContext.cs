@@ -13,7 +13,8 @@ namespace Alasson.Models
         {
             base.OnModelCreating(builder);
             builder.Entity<Employee>().ToTable("Employees");
-            builder.Entity<Employee>().HasKey(p => p.FullName);
+            builder.Entity<Employee>().HasKey(p => p.Id);
+            builder.Entity<Employee>().Property(p => p.Id).IsRequired().HasMaxLength(30);
             builder.Entity<Employee>().Property(p => p.FullName).IsRequired().HasMaxLength(30);
             builder.Entity<Employee>().Property(p => p.Email).IsRequired().HasMaxLength(30);
             builder.Entity<Employee>().Property(p => p.Charge).IsRequired().HasMaxLength(30);

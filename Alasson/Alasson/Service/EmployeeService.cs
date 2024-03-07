@@ -25,27 +25,16 @@ namespace Alasson.Service
             catch (Exception ex)
             { }
         }
-        public async Task<Employee> UpdateAsync(string fullname, int key, string value)
+        public async Task<Employee> UpdateAsync(string id, Employee newEmployee)
         {
             try
             {
-                var employee = await _context.Employees.FindAsync(fullname);
+                var employee = await _context.Employees.FindAsync(id);
                 if (employee != null)
                 {
-                    switch (key) {
-                        case 1:
-                            employee.Email = value;
-
-                            break;
-                        case 2:
-                            employee.Charge = value;
-                            break;
-                        case 3:
-                            if (float.TryParse(value, out float salary)) employee.Salary = salary;
-                            break;
-                        default:
-                            break;
-                    }
+                    newEmployee.Id = employee.Id;
+                    _context.Employees.Remove(employee);
+                    await _context.Employees.AddAsync(newEmployee);
                     await CompleteAsync();
                     return employee;
 
@@ -61,11 +50,11 @@ namespace Alasson.Service
             }
 
         }
-        public async Task<string> DeleteAsync(string fullname)
+        public async Task<string> DeleteAsync(string id)
         {
             try
             {
-                var employee = await _context.Employees.FindAsync(fullname);
+                var employee = await _context.Employees.FindAsync(id);
                 if (employee != null)
                 {
                     _context.Employees.Remove(employee);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alasson")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92dea36745752616b832ad83650fd0e5209b00aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alasson")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alasson")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

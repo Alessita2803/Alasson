@@ -7,7 +7,7 @@ namespace Alasson.Interfaces
        Task<IEnumerable<Employee>> ListAsync(); //
         Task AddAsync(Employee employee);
 
-        Task<Employee> UpdateAsync(string fullname, int key, string value);
+        Task<Employee> UpdateAsync(string id,Employee newEmployee);
         Task<string> DeleteAsync(string fullname);
     }
 

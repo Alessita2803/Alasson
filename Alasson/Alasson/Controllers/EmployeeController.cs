@@ -62,20 +62,14 @@ namespace Alasson.Controllers
 
         }
 
-        public class PutBody
-        {
-            public int key { get; set; }
-
-            public string value { get; set; }
-        }
 
         // PUT api/<EmployeeController>/5
-        [HttpPut("{fullname}")]
-        public async Task<IActionResult> Put(string fullname, [FromBody] PutBody body)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] PostBody body)
         {
             try
             {
-                var employee = await _employeeService.UpdateAsync(fullname, body.key, body.value);
+                var employee = await _employeeService.UpdateAsync(id, new Employee(body.FullName, body.Email, body.Charge, body.Salary));
                 return Ok(employee); 
             }catch(Exception ex)
             {
